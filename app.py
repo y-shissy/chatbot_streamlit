@@ -1,19 +1,15 @@
 from openai import OpenAI
 import streamlit as st
 import os
-from dotenv import load_dotenv
-
-# .envファイルのパスを指定して読み込む
-load_dotenv()
 
 
 st.title("ChatGPT by Streamlit") # タイトルの設定
 
-# api_key = st.text_input("Enter your OpenAI API Key:", type="password")
+api_key = st.text_input("Enter your OpenAI API Key:", type="password")
 
 client = OpenAI(
     # api_key=api_key
-    api_key=os.getenv('OPENAI_API_KEY'),
+    api_key=api_key,
 )
 
 # セッション内で使用するモデルが指定されていない場合のデフォルト値
